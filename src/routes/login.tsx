@@ -4,14 +4,7 @@ import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../firebase";
-import {
-  Error,
-  Form,
-  Input,
-  Switcher,
-  Title,
-  Wrapper,
-} from "../components/auth-components";
+import { Error, Form, Input, Switcher, Title, Wrapper } from "../components/auth-components";
 import GithubButton from "../components/github-btn";
 
 export default function CreateAccount() {
@@ -53,28 +46,13 @@ export default function CreateAccount() {
     <Wrapper>
       <Title>Log into 𝕏</Title>
       <Form onSubmit={onSubmit}>
-        <Input
-          onChange={onChange}
-          value={email}
-          name="email"
-          placeholder="Email"
-          type="email"
-          required
-        />
-        <Input
-          onChange={onChange}
-          value={password}
-          name="password"
-          placeholder="Password"
-          type="password"
-          required
-        />
+        <Input onChange={onChange} value={email} name="email" placeholder="Email" type="email" required />
+        <Input onChange={onChange} value={password} name="password" placeholder="Password" type="password" required />
         <Input type="submit" value={isLoading ? "Loading..." : "Log in"} />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
       <Switcher>
-        Don't have an account?{" "}
-        <Link to={"/create-account"}>Create one &rarr;</Link>
+        Don't have an account? <Link to={"/create-account"}>Create one &rarr;</Link>
       </Switcher>
       <GithubButton />
     </Wrapper>

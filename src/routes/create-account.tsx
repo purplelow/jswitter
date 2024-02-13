@@ -4,14 +4,7 @@ import { FirebaseError } from "firebase/app";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import { auth } from "../firebase";
-import {
-  Error,
-  Form,
-  Input,
-  Switcher,
-  Title,
-  Wrapper,
-} from "../components/auth-components";
+import { Error, Form, Input, Switcher, Title, Wrapper } from "../components/auth-components";
 import GithubButton from "../components/github-btn";
 
 export default function CreateAccount() {
@@ -41,11 +34,7 @@ export default function CreateAccount() {
     if (isLoading || name === "" || email === "" || password === "") return;
     try {
       setLoading(true);
-      const credentials = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const credentials = await createUserWithEmailAndPassword(auth, email, password);
       console.log(credentials.user);
 
       await updateProfile(credentials.user, {
@@ -69,34 +58,10 @@ export default function CreateAccount() {
     <Wrapper>
       <Title>Join 𝕏</Title>
       <Form onSubmit={onSubmit}>
-        <Input
-          onChange={onChange}
-          value={name}
-          name="name"
-          placeholder="Name"
-          type="text"
-          required
-        />
-        <Input
-          onChange={onChange}
-          value={email}
-          name="email"
-          placeholder="Email"
-          type="email"
-          required
-        />
-        <Input
-          onChange={onChange}
-          value={password}
-          name="password"
-          placeholder="Password"
-          type="password"
-          required
-        />
-        <Input
-          type="submit"
-          value={isLoading ? "Loading..." : "Create Account"}
-        />
+        <Input onChange={onChange} value={name} name="name" placeholder="Name" type="text" required />
+        <Input onChange={onChange} value={email} name="email" placeholder="Email" type="email" required />
+        <Input onChange={onChange} value={password} name="password" placeholder="Password" type="password" required />
+        <Input type="submit" value={isLoading ? "Loading..." : "Create Account"} />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
       <Switcher>

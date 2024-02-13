@@ -25,6 +25,7 @@ const Logo = styled.img`
 
 export default function GithubButton() {
   const navigate = useNavigate();
+
   const onClick = async () => {
     try {
       const provider = new GithubAuthProvider();
