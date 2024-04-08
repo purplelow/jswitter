@@ -55,6 +55,22 @@ export default function CreateAccount() {
         Don't have an account? <Link to={"/create-account"}>Create one &rarr;</Link>
       </Switcher>
       <GithubButton />
+
+      {/* <h1>Test</h1>
+      <div>
+        <input type="text" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
+        <button onClick={handleAddTodo}>Todo 추가</button>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>{todo.title}</span>
+              <button onClick={() => handleRemoveTodo(todo.id)}>삭제</button>
+              <button onClick={() => handleToggleCompleted(todo.id)}>토글</button>
+              {todo.completed && <span>V</span>}
+            </li>
+          ))}
+        </ul>
+      </div> */}
     </Wrapper>
   );
 }

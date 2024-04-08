@@ -25,6 +25,7 @@
       "@/components/*": ["components/*"],
       "@/routes/*": ["routes/*"],
       "@/model/*": ["model/*"],
+      "@/utils/*": ["utils/*"],
       "@/assets/*": ["assets/*"]
     }
   },
